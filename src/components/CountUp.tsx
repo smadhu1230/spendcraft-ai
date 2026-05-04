@@ -5,10 +5,11 @@ interface Props {
   value: number;
   duration?: number;
   prefix?: string;
+  suffix?: string;
   decimals?: number;
 }
 
-export function CountUp({ value, duration = 1200, prefix = "", decimals = 0 }: Props) {
+export function CountUp({ value, duration = 1200, prefix = "", suffix = "", decimals = 0 }: Props) {
   const [display, setDisplay] = useState(0);
 
   useEffect(() => {
@@ -30,5 +31,5 @@ export function CountUp({ value, duration = 1200, prefix = "", decimals = 0 }: P
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals,
   });
-  return <span>{prefix}{formatted}</span>;
+  return <span>{prefix}{formatted}{suffix}</span>;
 }
